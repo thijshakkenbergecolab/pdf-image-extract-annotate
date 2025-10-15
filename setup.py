@@ -9,13 +9,13 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="pdf-image-extract-annotate",
-    version="0.1.0",
-    author="Your Name",
-    author_email="your.email@example.com",
+    version="1.0.0",
+    author="Thijs Hakkenberg",
+    author_email="thijs.hakkenberg@ecolab.com",
     description="Extract images from PDFs and create annotated versions with watermarks",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/yourusername/pdf-image-extract-annotate",
+    url="https://github.com/thijshakkenberg/pdf-image-extract-annotate",
     packages=find_packages(),
     classifiers=[
         "Development Status :: 3 - Alpha",
