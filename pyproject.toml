@@ -8,7 +8,7 @@ version = "1.0.0"
 description = "Extract images from PDFs and create annotated versions with watermarks"
 readme = "README.md"
 requires-python = ">=3.11"
-license = {text = "MIT"}
+license = "MIT"
 authors = [
     {name = "Thijs Hakkenberg", email = "thijs.hakkenberg@ecolab.com"}
 ]
