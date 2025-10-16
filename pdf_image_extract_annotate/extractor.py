@@ -12,7 +12,7 @@ from typing import Dict, Any, List
 from pymupdf import open as pdfopen
 
 from .models import ImageMetadata, ExtractionConfig, ExtractedImageData
-from .utils import recover_pixmap
+from .utils.image_processing import recover_pixmap
 
 logger = logging.getLogger(__name__)
 
@@ -45,12 +45,12 @@ class PDFImageExtractor:
         # Check dimension limit
         if (
             self.config.dim_limit > 0
-            and img_metadata.min_dimension <= self.config.dim_limit
+            and img_metadata.min_dimension < self.config.dim_limit
         ):
             return False
 
         # Check absolute size limit
-        if self.config.abs_size > 0 and len(image_data.image) <= self.config.abs_size:
+        if self.config.abs_size > 0 and len(image_data.image) < self.config.abs_size:
             return False
 
         # Check relative size limit
@@ -60,7 +60,7 @@ class PDFImageExtractor:
             )
             if (
                 pixel_count > 0
-                and len(image_data.image) / pixel_count <= self.config.rel_size
+                and len(image_data.image) / pixel_count < self.config.rel_size
             ):
                 return False
 

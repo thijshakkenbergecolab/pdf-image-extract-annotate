@@ -166,8 +166,9 @@ class TestPDFImageWatermarker:
             extraction_config=ExtractionConfig(output_dir=str(temp_dir))
         )
 
-        # Mock PDF document
-        mock_doc = MagicMock()
+        # Mock PDF document with proper spec
+        from pymupdf import Document
+        mock_doc = MagicMock(spec=Document)
         mock_doc.page_count = 1
         mock_doc.get_page_images.return_value = [
             (1, 0, 100, 100, 8, "RGB", "img1", "img1", "DCT")
@@ -197,6 +198,7 @@ class TestPDFImageWatermarker:
             assert result.images_extracted == 1
             assert result.images_watermarked == 1
             assert result.output_directory == str(temp_dir)
+            assert result.output_pdf == mock_doc
 
     def test_get_watermark_text_formats(self):
         """Test different watermark text formats."""

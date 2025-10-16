@@ -18,7 +18,8 @@ from .models import (
     ImageWatermarkEntry,
     WatermarkResult
 )
-from .utils import recover_pixmap, store_image_to_target
+from .utils.image_processing import recover_pixmap
+from .utils.blob_storage import store_image_to_target
 
 logger = logging.getLogger(__name__)
 
