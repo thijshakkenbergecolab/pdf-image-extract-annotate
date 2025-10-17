@@ -35,9 +35,6 @@ jobs:
     needs:
     - build
     runs-on: ubuntu-latest
-    environment:
-      name: pypi
-      url: https://pypi.org/p/pdf-image-extract-annotate
     permissions:
       id-token: write  # IMPORTANT: mandatory for trusted publishing
 
